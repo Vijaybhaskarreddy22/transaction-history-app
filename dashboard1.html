@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: hsl(187, 39%, 49%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            margin: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: hsl(192, 39%, 49%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .btn:hover {
+            background-color: hsl(188, 40%, 45%);
+        }
+        .transaction-list {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: hsl(188, 39%, 49%);
+            color: white;
+        }
+        .section-title {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Dashboard</h1>
+</div>
+
+<div class="container">
+    <h2>Welcome, Divya Jyothi Vasa!</h2>
+
+    <p>Manage your transactions below:</p>
+    
+    <!-- Buttons for navigating to Transaction History and Create Transaction -->
+    <button class="btn" onclick="window.location.href='transaction-history.html'">Go to Transaction History</button>
+    <button class="btn" onclick="window.location.href='create-transaction.html'">Send New Acknowlegement</button>
+    
+    <!-- Recent Transactions Section -->
+    <div class="section-title">Recent Transactions</div>
+    <div class="transaction-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Timestamp</th>
+                    <th>Data</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="transaction-list">
+                <!-- Recent transactions will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // Sample transactions for demonstration
+    const transactions = [
+        { id: 'T001', timestamp: '2025-01-20 12:30', data: 'Payment of Rs. 50000 to vijay', hash: 'abc123hash', status: 'Accepted' },
+        { id: 'T002', timestamp: '2025-01-21 14:20', data: 'Payment of Rs.5000 to vijay', hash: 'def456hash', status: 'Denied' },
+        { id: 'T003', timestamp: '2025-01-22 10:00', data: 'Payment of Rs. 2000 to vijay', hash: 'ghi789hash', status: 'Accepted' },
+        { id: 'T004', timestamp: '2025-01-22 16:15', data: 'Payment of Rs.2000 to vijay', hash: 'jkl101hash', status: 'Accepted' },
+        { id: 'T001', timestamp: '2025-01-24 12:30', data: 'Payment of Rs. 50000 to vijay', hash: 'abc123hash', status: 'Accepted' },
+        { id: 'T002', timestamp: '2025-01-24 14:20', data: 'Payment of Rs.5000 to vijay', hash: 'def456hash', status: 'Denied' },
+        { id: 'T003', timestamp: '2025-01-25 10:00', data: 'Payment of Rs. 2000 to vijay', hash: 'ghi789hash', status: 'Accepted' },
+        { id: 'T004', timestamp: '2025-01-25 16:15', data: 'Payment of Rs.2000 to vijay', hash: 'jkl101hash', status: 'Accepted' },
+        { id: 'T001', timestamp: '2025-01-26 12:30', data: 'Payment of Rs. 50000 to vijay', hash: 'abc123hash', status: 'Accepted' },
+        { id: 'T002', timestamp: '2025-01-26 14:20', data: 'Payment of Rs.5000 to vijay', hash: 'def456hash', status: 'Denied' },
+        { id: 'T003', timestamp: '2025-01-27 10:00', data: 'Payment of Rs. 2000 to vijay', hash: 'ghi789hash', status: 'Accepted' },
+        { id: 'T004', timestamp: '2025-01-27 16:15', data: 'Payment of Rs.2000 to vijay', hash: 'jkl101hash', status: 'Accepted' },
+        { id: 'T001', timestamp: '2025-01-28 12:30', data: 'Payment of Rs. 50000 to vijay', hash: 'abc123hash', status: 'Accepted' },
+        { id: 'T002', timestamp: '2025-01-28 14:20', data: 'Payment of Rs.5000 to vijay', hash: 'def456hash', status: 'Denied' },
+        { id: 'T003', timestamp: '2025-01-29 10:00', data: 'Payment of Rs. 2000 to vijay', hash: 'ghi789hash', status: 'Accepted' },
+        { id: 'T004', timestamp: '2025-01-29 16:15', data: 'Payment of Rs.2000 to vijay', hash: 'jkl101hash', status: 'Accepted' }
+
+    ];
+
+
+    // Function to display recent transactions on the dashboard
+    function displayTransactions() {
+        const transactionList = document.getElementById('transaction-list');
+        transactionList.innerHTML = ''; // Clear the previous list
+
+        // Show first 3 transactions for demo
+        transactions.slice(0, 3).forEach(transaction => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${transaction.id}</td>
+                <td>${transaction.timestamp}</td>
+                <td>${transaction.data}</td>
+                <td>${transaction.status}</td>
+            `;
+            transactionList.appendChild(row);
+        });
+    }
+
+    // Call the display function on page load
+    displayTransactions();
+</script>
+
+</body>
+</html>
