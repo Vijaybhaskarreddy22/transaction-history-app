@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transaction History</title>
-    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,15 +60,16 @@
     </style>
 </head>
 <body>
-
 <div class="header">
     <h1>Transaction History</h1>
-    
-</div>
+ </div>
 
 <div class="container">
+    <!-- Go to Dashboard Button -->
+    <a href="dashboard1.html" class="btn">Go to Dashboard</a>
+<br>
     <!-- Search Filters -->
-    <div class="search-filters">
+    <div class="search-filters"
         <label for="filter-date-start">Start Date:</label>
         <input type="date" id="filter-date-start">
         <label for="filter-date-end">End Date:</label>
@@ -78,8 +78,8 @@
         <input type="text" id="filter-keyword" placeholder="Search by transaction details">
         <button id="apply-filters">Apply Filters</button>
     </div>
-    <h3>Divya,Use Filters to access the data quickly</h3>
-    <h5>Note: inorder to search according to data using keyword filter otherwise use date filters</h5>
+    <h3>Divya,use filters to access the data quickly</h3>
+    <h5>Note: inorder to filter according to the data use keyword filter otherwise use date filters</h5>
     <h2>Your Transactions</h2>
     <table>
         <thead>
